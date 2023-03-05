@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let myArr = []
+    let lengthArr
+    inputLengthArr()
+    pushElement()
+    sumEven()
+    sumPrime()
+
+    function inputLengthArr() {
+        lengthArr = parseInt(prompt("Input array length!"))
+    }
+
+    function pushElement() {
+        let cnt = 1
+        while (cnt <= lengthArr) {
+            myArr.push(parseInt(prompt('Input array element!')))
+            cnt++
+        }
+    }
+
+    function sumEven() {
+        let cnt = 0
+        let sum = 0
+        for (const myArrElement of myArr) {
+            if (myArrElement % 2 === 0) {
+                sum += myArrElement
+                cnt++
+            }
+        }
+        document.write('Sum of even element = ' + sum + '<br>')
+        document.write('The number of even numbers = ' + cnt + '<br>')
+    }
+
+    function sumPrime() {
+        let sum = 0
+        for (const myArrElement of myArr) {
+            if (checkPrime(myArrElement) === true) {
+                sum += myArrElement
+            }
+        }
+        document.write('Sum of prime numbers = ' + sum)
+    }
+
+    function checkPrime(toCheckNumber) {
+        if (toCheckNumber === 1) {
+            return false
+        }
+        for (let i = 2; i < toCheckNumber; i++) {
+            if (toCheckNumber % i === 0) {
+                return false
+            }
+        }
+        return true
+    }
+</script>
+</body>
+</html>
